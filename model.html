@@ -1,0 +1,100 @@
+<html>
+<head>
+	<!-- jQuery and knockout CDN -->	
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js" type="text/javascript" ></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js" type="text/javascript" ></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container-fluid>
+		<div class="row">
+			<div class="col-md-1 text-center">
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input class="form-control" data-bind="value: donation" type="text" placeholder="Donation" />
+				</div>
+				Donation
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
+				=
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: utility_Savings"></strong>
+				<br/>
+				Utility Cost Savings
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; height:100px">
+				+
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: carbon_Savings"></strong> lbs.
+				<br/>
+				Carbon Savings
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
+				+
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: nitrogen_Savings"></strong> lbs.
+				<br/>
+				Nitrogen Oxide Savings
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
+				+
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: sulfurOx_Savings"></strong> lbs.
+				<br />
+				Sulfur Oxide Savings
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
+				+
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: water_Saved"></strong> gal.
+				<br />
+				Water Conserved
+			</div>
+			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
+				+
+			</div>
+			<div class="col-md-1 text-center">
+				<strong data-bind="text: people_Served"></strong>
+				<br/>
+				People Served
+			</div>
+		</div>
+	</div>
+	<script typle="text/javascript">
+	function AppViewModel() {
+		this.donation = ko.observable(5);
+		this.utility_Savings = ko.computed(function(){
+			return (this.donation() * 1.50).toFixed(2);
+		}, this);
+		this.carbon_Savings = ko.computed(function() {
+			return (this.donation() * 19.16).toFixed(3);
+		}, this);
+		this.nitrogen_Savings = ko.computed(function() {
+			return (0.035 * this.donation()).toFixed(3);
+		}, this);
+		this.sulfurOx_Savings = ko.computed(function() {
+			return (0.025 * this.donation()).toFixed(3);
+		}, this);
+		this.water_Saved = ko.computed(function() {
+			return 50 * this.donation();
+		}, this);
+		this.people_Served = 0;
+	}
+
+	// Activates knockout.js
+	ko.applyBindings(new AppViewModel());
+</script>
+</body>
+</html>
