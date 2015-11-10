@@ -14,70 +14,45 @@
 </head>
 <body>
 	<style>
-		#btn-Donation:hover {
-			cursor: pointer;
-			background-color: #EDFFE5;
+		#ImpatModel td{
+			padding: 5px;
+			text-align: center;
 		}
 	</style>
-	<div class="container-fluid>
-		<div class="row" style="height: 200px">
-			<div class="col-md-2 text-center">
-				<div class="input-group">
+	<table id="ImpatModel">
+		<tr>
+			<td><div class="input-group">
 					<span class="input-group-addon">$</span>
 					<input class="form-control" data-bind="value: donation" type="text" placeholder="Donation" />
-					<span id="btn-Donation" class="input-group-addon">Donation</span>
 				</div>
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
-				=
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: utility_Savings"></strong>
+				<span id="btn-Donation" class="btn btn-default">Donation</span>
+				</td>
+			<td>=</td>
+			<td><strong data-bind="text: utility_Savings"></strong>
 				<br/>
-				Utility Cost Savings
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; height:100px">
-				+
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: carbon_Savings"></strong> lbs.
+				Utility Cost Savings</td>
+			<td>+</td>
+			<td><strong data-bind="text: carbon_Savings"></strong> lbs.
 				<br/>
-				Carbon Savings
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
-				+
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: nitrogen_Savings"></strong> lbs.
+				Carbon Savings</td>
+			<td>+</td>
+			<td><strong data-bind="text: nitrogen_Savings"></strong> lbs.
 				<br/>
-				Nitrogen Oxide Savings
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
-				+
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: sulfurOx_Savings"></strong> lbs.
+				Nitrogen Oxide Savings</td>
+			<td>+</td>
+			<td><strong data-bind="text: sulfurOx_Savings"></strong> lbs.
 				<br />
-				Sulfur Oxide Savings
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
-				+
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: water_Saved"></strong> gal.
+				Sulfur Oxide Savings</td>
+			<td>+</td>
+			<td><strong data-bind="text: water_Saved"></strong> gal.
 				<br />
-				Water Conserved
-			</div>
-			<div class="col-md-1 text-center" style="vertical-align: middle; width:5px; min-height:100px">
-				+
-			</div>
-			<div class="col-md-1 text-center">
-				<strong data-bind="text: people_Served"></strong>
+				Water Conserved<td>
+			<td>+</td>
+			<td><strong data-bind="text: people_Served"></strong>
 				<br/>
-				People Served
-			</div>
-		</div>
-	</div>
+				People Served</td>
+		</tr>
+	</table>
 	<script typle="text/javascript">
 	function AppViewModel() {
 		this.donation = ko.observable(5);
